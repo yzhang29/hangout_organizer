@@ -7,11 +7,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.yahoo.apps.hangoutorganizer.models.Business;
@@ -24,6 +27,17 @@ public class YelpLocationSearchActivity extends Activity {
 	private BusinessArrayAdapter aBusinesses;
 	private ListView lvBusinesses;
 	
+	private void setupListViewListener() {
+		 	final Context ctx = this;
+	        lvBusinesses.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+	            @Override
+	            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+	                //launch other view
+	               Toast.makeText(ctx, "RETURN", Toast.LENGTH_SHORT).show();
+	            }
+	        });
+	}
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -33,6 +47,7 @@ public class YelpLocationSearchActivity extends Activity {
 		aBusinesses = new BusinessArrayAdapter(this, businesses);
 		lvBusinesses = (ListView) findViewById(R.id.lvBusinesses);
 		lvBusinesses.setAdapter(aBusinesses);
+		setupListViewListener();
 	}
 	
 	public void searchYelp(View v) {

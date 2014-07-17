@@ -10,7 +10,7 @@
     <string name="title_activity_events">Events</string>
     <string name="app_id">461934393943460</string>
     <string name="title_activity_event_creation">EventCreationActivity</string>
-    <string name="title_activity_yelp_location_search">YelpLocationSearchActivity</string>
+    <string name="title_activity_yelp_location_search">Find a Place</string>
     <string name="title_activity_main">MainActivity</string>
 
 </resources>
