@@ -60,7 +60,8 @@ public class LoginActivity extends Activity {
 	}
 
 	public void login(View v) {
-		ParseFacebookUtils.logIn(this, new LogInCallback() {
+		goToMainActivity();
+		/*ParseFacebookUtils.logIn(this, new LogInCallback() {
 			@Override
 			public void done(ParseUser user, ParseException err) {
 				if (user == null) {
@@ -75,7 +76,7 @@ public class LoginActivity extends Activity {
 					goToMainActivity();
 				}
 			}
-		});
+		});*/
 	}
 	
 	private void goToMainActivity(){

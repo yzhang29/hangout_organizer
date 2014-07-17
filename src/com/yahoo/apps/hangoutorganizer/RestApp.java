@@ -14,8 +14,8 @@ public class RestApp extends com.activeandroid.app.Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Parse.initialize(this, "QHgp5nFbpgbtaicT4pDVts4ZxdI82NDw8aaWvuET", "aoBs4bpAsw6QnOLRJjO8m7E0fxJWwbG9tzegibvM");
-        ParseFacebookUtils.initialize("672552016165260");
+        //Parse.initialize(this, "QHgp5nFbpgbtaicT4pDVts4ZxdI82NDw8aaWvuET", "aoBs4bpAsw6QnOLRJjO8m7E0fxJWwbG9tzegibvM");
+        //ParseFacebookUtils.initialize("672552016165260");
         RestApp.context = this;
         
         // Create global configuration and initialize ImageLoader with this configuration

@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ListView;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.yahoo.apps.hangoutorganizer.models.Business;
@@ -21,6 +22,7 @@ public class YelpLocationSearchActivity extends Activity {
 	private YelpClient client;
 	private ArrayList<Business> businesses;
 	private BusinessArrayAdapter aBusinesses;
+	private ListView lvBusinesses;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,8 @@ public class YelpLocationSearchActivity extends Activity {
 		client = RestApp.getYelpClient();
 		businesses = new ArrayList<Business>();
 		aBusinesses = new BusinessArrayAdapter(this, businesses);
+		lvBusinesses = (ListView) findViewById(R.id.lvBusinesses);
+		lvBusinesses.setAdapter(aBusinesses);
 	}
 	
 	public void searchYelp(View v) {

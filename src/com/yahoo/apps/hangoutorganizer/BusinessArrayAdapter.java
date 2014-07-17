@@ -1,18 +1,16 @@
 package com.yahoo.apps.hangoutorganizer;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.List;
-import java.util.Locale;
 
 import android.content.Context;
-import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.yahoo.apps.hangoutorganizer.models.Business;
@@ -33,32 +31,25 @@ public class BusinessArrayAdapter extends ArrayAdapter<Business> {
 		} else {
 			v = convertView;
 		}
+		final Context ctx = this.getContext();
 		
-		/*RoundedImageView ivProfileImage = (RoundedImageView) v.findViewById(R.id.ivProfileImage);
-		TextView tvUserName = (TextView) v.findViewById(R.id.tvComposeUserName);
-		TextView tvUserScreenName = (TextView) v.findViewById(R.id.tvUserScreenName);
-		TextView tvBody = (TextView) v.findViewById(R.id.tvBody);
-		TextView tvCreatedAt = (TextView) v.findViewById(R.id.tvCreatedAt);
-		TextView tvRetweets = (TextView) v.findViewById(R.id.tvRetweets);
-		TextView tvFavorites = (TextView) v.findViewById(R.id.tvFavorites);
+		RoundedImageView ivProfileImage = (RoundedImageView) v.findViewById(R.id.ivProfileImage);
+		ImageView ivRating = (ImageView) v.findViewById(R.id.ivRating);
+		TextView tvName = (TextView) v.findViewById(R.id.tvName);
 		ivProfileImage.setImageResource(android.R.color.transparent);
 		ImageLoader imageLoader = ImageLoader.getInstance();
-		imageLoader.displayImage(tweet.getUser().getProfileImageUrl(), ivProfileImage);
-		tvUserName.setText(tweet.getUser().getName());
-		tvUserScreenName.setText("@" + tweet.getUser().getScreenName());
-		tvBody.setText(tweet.getBody());
-		tvCreatedAt.setText(getRelativeTimeAgo(tweet.getCreatedAt()));
-		tvRetweets.setText(formatNumberWithSuffix(tweet.getRetweetCount()));
-		tvFavorites.setText(formatNumberWithSuffix(tweet.getFavoriteCount()));
+		imageLoader.displayImage(business.getImageUrl(), ivProfileImage);
+		imageLoader.displayImage(business.getRatingImageUrlSmall(), ivRating);
+		tvName.setText(business.getName());
 		
 		ivProfileImage.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				((TweetListActivity) getContext()).openUserProfile(tweet.getUser());
+				Toast.makeText(ctx, "RETURN TO ACTIVITY!", Toast.LENGTH_SHORT).show();
 			}
 			
-		});*/
+		});
 		return v;
 	}
 }
