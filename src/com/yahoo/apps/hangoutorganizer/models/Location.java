@@ -1,6 +1,8 @@
 package com.yahoo.apps.hangoutorganizer.models;
 
-public class Location {
-	private String address;
-	private String yelpUrl;
+public abstract class Location {
+	
+	public abstract String getParameter();
+	public abstract String getParameterValue();
+	
 }

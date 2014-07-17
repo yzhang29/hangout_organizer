@@ -8,16 +8,7 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.parse.Parse;
 import com.parse.ParseFacebookUtils;
 
-/*
- * This is the Android application itself and is used to configure various settings
- * including the image cache in memory and on disk. This also adds a singleton
- * for accessing the relevant rest client.
- * 
- *     RestClient client = RestClientApp.getRestClient();
- *     // use client to send requests to API
- *     
- */
-public class RestClientApp extends com.activeandroid.app.Application {
+public class RestApp extends com.activeandroid.app.Application {
 	private static Context context;
 	
     @Override
@@ -25,7 +16,7 @@ public class RestClientApp extends com.activeandroid.app.Application {
         super.onCreate();
         Parse.initialize(this, "QHgp5nFbpgbtaicT4pDVts4ZxdI82NDw8aaWvuET", "aoBs4bpAsw6QnOLRJjO8m7E0fxJWwbG9tzegibvM");
         ParseFacebookUtils.initialize("672552016165260");
-        RestClientApp.context = this;
+        RestApp.context = this;
         
         // Create global configuration and initialize ImageLoader with this configuration
         DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder().
@@ -36,7 +27,7 @@ public class RestClientApp extends com.activeandroid.app.Application {
         ImageLoader.getInstance().init(config);
     }
     
-    public static RestClient getRestClient() {
-    	return (RestClient) RestClient.getInstance(RestClient.class, RestClientApp.context);
+    public static YelpClient getYelpClient() {
+    	return (YelpClient) YelpClient.getInstance(YelpClient.class, RestApp.context);
     }
 }

@@ -3,6 +3,7 @@ package com.yahoo.apps.hangoutorganizer;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,7 +20,7 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
-public class LoginActivity extends OAuthLoginActivity<RestClient> {
+public class LoginActivity extends Activity {
 	String username = null;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -50,28 +51,6 @@ public class LoginActivity extends OAuthLoginActivity<RestClient> {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.login, menu);
 		return true;
-	}
-
-	// OAuth authenticated successfully, launch primary authenticated activity
-	// i.e Display application "homepage"
-	@Override
-	public void onLoginSuccess() {
-		// Intent i = new Intent(this, PhotosActivity.class);
-		// startActivity(i);
-	}
-
-	// OAuth authentication flow failed, handle the error
-	// i.e Display an error dialog or toast
-	@Override
-	public void onLoginFailure(Exception e) {
-		e.printStackTrace();
-	}
-
-	// Click handler method for the button used to start OAuth flow
-	// Uses the client to initiate OAuth authorization
-	// This should be tied to a button used to login
-	public void loginToRest(View view) {
-		getClient().connect();
 	}
 
 	@Override
