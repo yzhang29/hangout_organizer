@@ -15,9 +15,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
+import com.yahoo.apps.hangoutorganizer.models.Address;
 import com.yahoo.apps.hangoutorganizer.models.Business;
 import com.yahoo.apps.hangoutorganizer.models.TextLocation;
 
@@ -35,8 +35,10 @@ public class YelpLocationSearchActivity extends Activity {
 	        lvBusinesses.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 	            @Override
 	            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-	                //launch other view
-	               Toast.makeText(ctx, "RETURN", Toast.LENGTH_SHORT).show();
+	            	Address address = businesses.get(position).getAddress();
+	            	Log.d("DEBUG", "business: " + businesses.get(position).toString());
+	            	Log.d("DEBUG", "address: " + address.toString());
+	            	chooseLocation(address);
 	            }
 	        });
 	}
@@ -52,6 +54,7 @@ public class YelpLocationSearchActivity extends Activity {
 		lvBusinesses.setAdapter(aBusinesses);
 		etTerm = (EditText) findViewById(R.id.etTerm);
 		etLocation = (EditText) findViewById(R.id.etLocation);
+		etTerm.requestFocus();
 		setupListViewListener();
 	}
 	
@@ -93,9 +96,9 @@ public class YelpLocationSearchActivity extends Activity {
 		}, term, new TextLocation(location));
 	}
 	
-	public void saveLocation(View v){
+	public final void chooseLocation(Address address){
 		Intent i = new Intent();
-		i.putExtra("location", "Yahoo");
+		i.putExtra("location", address.toString());
 		setResult(RESULT_OK, i);
 		finish();
 	}

@@ -77,7 +77,7 @@ public class MainActivity extends FragmentActivity {
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		CreateEventFragment createEventFragment = (CreateEventFragment) getSupportFragmentManager().findFragmentByTag("new_event");
 		if(requestCode == 1 && resultCode == RESULT_OK){
-			Log.d("ChengMa","location get data: "+data.getStringExtra("location"));
+			Log.d("ChengMa","location get data: "+ data.getStringExtra("location"));
 			createEventFragment.setLocation(data.getStringExtra("location"));
 		}
 	}
