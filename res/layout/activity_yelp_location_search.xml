@@ -4,16 +4,6 @@
     android:layout_height="match_parent"
     tools:context="${relativePackage}.${activityClass}" >
 
-     <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="34dp"
-        android:layout_marginTop="15dp"
-        android:text="Search" 
-        android:onClick="searchYelp"/>
-
      <ListView
          android:id="@+id/lvBusinesses"
          android:layout_width="match_parent"
@@ -21,9 +11,42 @@
          android:layout_alignParentBottom="true"
          android:layout_alignParentLeft="true"
          android:layout_alignParentRight="true"
-         android:layout_below="@+id/button1"
+         android:layout_below="@+id/etLocation"
          android:layout_marginTop="20dp" >
 
      </ListView>
+
+     <EditText
+         android:id="@+id/etLocation"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_below="@+id/etTerm"
+         android:layout_marginLeft="10dp"
+         android:layout_marginTop="10dp"
+         android:ems="10"
+         android:hint="Enter location..." />
+
+     <EditText
+         android:id="@+id/etTerm"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_alignParentTop="true"
+         android:layout_marginLeft="10dp"
+         android:layout_marginTop="10dp"
+         android:ems="10"
+         android:hint="Enter search term..." />
+
+     <Button
+         android:id="@+id/button1"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentRight="false"
+         android:layout_alignTop="@+id/etTerm"
+         android:layout_marginLeft="10dp"
+         android:layout_toRightOf="@id/etTerm"
+         android:onClick="searchYelp"
+         android:text="Search" />
 
 </RelativeLayout>

@@ -36,7 +36,7 @@ public class BusinessArrayAdapter extends ArrayAdapter<Business> {
 		ivProfileImage.setImageResource(android.R.color.transparent);
 		ImageLoader imageLoader = ImageLoader.getInstance();
 		imageLoader.displayImage(business.getImageUrl(), ivProfileImage);
-		imageLoader.displayImage(business.getRatingImageUrl(), ivRating);
+		imageLoader.displayImage(business.getRatingImageUrlLarge(), ivRating);
 		tvName.setText(business.getName());
 		return v;
 	}

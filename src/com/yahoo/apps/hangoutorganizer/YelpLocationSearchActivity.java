@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -26,6 +27,8 @@ public class YelpLocationSearchActivity extends Activity {
 	private ArrayList<Business> businesses;
 	private BusinessArrayAdapter aBusinesses;
 	private ListView lvBusinesses;
+	private EditText etTerm;
+	private EditText etLocation;
 	
 	private void setupListViewListener() {
 		 	final Context ctx = this;
@@ -47,10 +50,16 @@ public class YelpLocationSearchActivity extends Activity {
 		aBusinesses = new BusinessArrayAdapter(this, businesses);
 		lvBusinesses = (ListView) findViewById(R.id.lvBusinesses);
 		lvBusinesses.setAdapter(aBusinesses);
+		etTerm = (EditText) findViewById(R.id.etTerm);
+		etLocation = (EditText) findViewById(R.id.etLocation);
 		setupListViewListener();
 	}
 	
 	public void searchYelp(View v) {
+		String term = etTerm.getText().toString();
+		String location = etLocation.getText().toString();
+		aBusinesses.clear();
+		Log.d("DEBUG", "Searching for: " + term + " In: " + location);
 		client.search(new JsonHttpResponseHandler() {
 			@Override
 			public void onSuccess(int code, JSONObject body) {
@@ -81,7 +90,7 @@ public class YelpLocationSearchActivity extends Activity {
 			public void onFinish() {
 				Log.d("DEBUG", "Request finished!");
 			}
-		}, "sushi", new TextLocation("San Francisco"));
+		}, term, new TextLocation(location));
 	}
 	
 	public void saveLocation(View v){

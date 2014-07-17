@@ -15,6 +15,7 @@ public class Business implements Serializable {
 	private String imageUrl;
 	private String ratingImageUrl;
 	private String ratingImageUrlSmall;
+	private String ratingImageUrlLarge;
 	
 	public String getName() {
 		return this.name;
@@ -39,6 +40,10 @@ public class Business implements Serializable {
 	public String getRatingImageUrlSmall() {
 		return ratingImageUrlSmall;
 	}
+	
+	public String getRatingImageUrlLarge() {
+		return ratingImageUrlLarge;
+	}
 
 	public static Business fromJSON(JSONObject jsonObject) {
 		Business b = new Business();
@@ -50,6 +55,7 @@ public class Business implements Serializable {
         	b.imageUrl = jsonObject.getString("image_url");
         	b.ratingImageUrl = jsonObject.getString("rating_img_url");
         	b.ratingImageUrlSmall = jsonObject.getString("rating_img_url_small");
+        	b.ratingImageUrlLarge = jsonObject.getString("rating_img_url_large");
         } catch (JSONException e) {
             e.printStackTrace();
             return null;
