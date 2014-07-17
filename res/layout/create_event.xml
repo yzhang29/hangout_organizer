@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <EditText
+        android:id="@+id/et_eventName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="Event name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/et_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/et_eventName"
+        android:layout_below="@+id/et_eventName"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="Details"
+        android:inputType="textMultiLine" />
+
+    <EditText
+        android:id="@+id/et_location"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/et_eventName"
+        android:layout_below="@+id/et_details"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="Location" />
+
+    <Button
+        android:id="@+id/btn_location"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/et_location"
+        android:text="Add Location"
+        android:textSize="12sp" />
+
+    <EditText
+        android:id="@+id/et_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/btn_location"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="Date&amp;Time" />
+
+    <EditText
+        android:id="@+id/et_friends"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/et_date"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="People Invited(0)" >
+
+    </EditText>
+
+    <Button
+        android:id="@+id/btn_create"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="66dp"
+        android:text="Create Event" 
+       />
+
+</RelativeLayout>
